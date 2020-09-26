@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopmenuComponent } from './topmenu/topmenu.component';
 import { NodelistComponent } from './nodelist/nodelist.component';
+import { VisualizePageComponent } from './visualize-page/visualize-page.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { LogbookPageComponent } from './logbook-page/logbook-page.component';
 
 
 
@@ -13,7 +16,10 @@ import { NodelistComponent } from './nodelist/nodelist.component';
   declarations: [
     AppComponent,
     TopmenuComponent,
-    NodelistComponent
+    NodelistComponent,
+    VisualizePageComponent,
+    HomepageComponent,
+    LogbookPageComponent
   ],
   imports: [
     BrowserModule,
