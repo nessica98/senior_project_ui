@@ -1,1 +1,26 @@
-<p>visualize-page works!</p>
+<div>
+    <div class = "map-banner">
+        <img id = "image-1" src="../../assets/wooseok.jpg" style = "width:100%" alt="">
+    </div>
+    <h1>Node list</h1>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Node Name</th>
+        <th scope="col">Node owner</th>
+        <th scope="col">Node Startdate</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of dataArr">
+        <th scope="col">#</th>
+        <th scope="col">{{data.namenode}}</th>
+        <th scope="col">{{data.nodeowner}}</th>
+        <th scope="col">{{data.nodestartwork | date}}</th>
+        <th scope="col"><app-visualize-modal [nodename]= data.namenode></app-visualize-modal></th>
+      </tr>
+    </tbody>
+  </table>
+</div>

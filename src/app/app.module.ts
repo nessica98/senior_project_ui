@@ -9,8 +9,8 @@ import { NodelistComponent } from './nodelist/nodelist.component';
 import { VisualizePageComponent } from './visualize-page/visualize-page.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LogbookPageComponent } from './logbook-page/logbook-page.component';
-
-
+import { LoginLoggingSystemComponent } from './login-logging-system/login-logging-system.component';
+import { VisualizeModalComponent } from './visualize-modal/visualize-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,9 @@ import { LogbookPageComponent } from './logbook-page/logbook-page.component';
     NodelistComponent,
     VisualizePageComponent,
     HomepageComponent,
-    LogbookPageComponent
+    LogbookPageComponent,
+    LoginLoggingSystemComponent,
+    VisualizeModalComponent
   ],
   imports: [
     BrowserModule,

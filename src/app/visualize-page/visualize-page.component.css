@@ -1,0 +1,9 @@
+.map-banner {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    margin: 15px auto;
+}
+#image-1 {
+    max-width: 1000px
+}
