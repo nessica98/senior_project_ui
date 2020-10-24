@@ -14,10 +14,11 @@ export class VisualizeModalComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.nodeName)
     //Axios.get(`http://localhost:5000/data/${this.nodeName}`)
-    const btn = document.getElementById("btnDetail");
+    const btn = document.getElementsByClassName("btnDetail");
     btn.addEventListener("click",(e)=>{
       Axios.get(`http://localhost:5000/data/${this.nodeName}`).then((resp)=>{
         console.log(resp)
+        this.dataArr_recv = resp.data
       })
     })
   }
