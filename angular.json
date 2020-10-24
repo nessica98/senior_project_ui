@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gwweb"
+    }
+  },
+  "defaultProject": "gwweb",
+  "cli": {
+    "analytics": false
+  }
 }
