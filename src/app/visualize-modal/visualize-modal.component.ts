@@ -7,19 +7,27 @@ import Axios from 'axios';
   styleUrls: ['./visualize-modal.component.css']
 })
 export class VisualizeModalComponent implements OnInit {
-  @Input('nodename')nodeName:String;
+  @Input('nodename')nodeName;
   dataArr_recv:any;
   constructor() { }
+  helloworld(ss){
+    console.log('click')
+    console.log(ss)
+    console.log(this.nodeName)
+    
+  }
 
   ngOnInit(): void {
     console.log(this.nodeName)
     //Axios.get(`http://localhost:5000/data/${this.nodeName}`)
-    const btn = document.getElementById("btnDetail");
-    btn.addEventListener("click",(e)=>{
-      Axios.get(`http://localhost:5000/data/${this.nodeName}`).then((resp)=>{
+    Axios.get(`http://localhost:5000/fakedata/${this.nodeName}`).then((resp)=>{
         console.log(resp)
+        this.dataArr_recv = resp.data
+        console.log(this.dataArr_recv)
+        //this.dataArr_recv = this.dataArr_recv.filter((data)=>{return data.nodeName === this.nodeName})
+        this.dataArr_recv = this.dataArr_recv.slice(0,10)
       })
-    })
+    console.log(this.dataArr_recv)
   }
 
 }

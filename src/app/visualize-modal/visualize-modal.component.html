@@ -1,16 +1,37 @@
 <!-- Large modal -->
-<button type="button" id = "btnDetail" class="btn btn-outline-info" data-toggle="modal" data-target=".bd-example-modal-lg">More detail</button>
+<button type="button" (click)="helloworld(nodeName)" class="btn btn-outline-info" data-toggle="modal" [attr.data-target] = "'#'+this.nodeName" data-target=".bd-example-modal-lg">More detail</button>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" [id] = "this.nodeName" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">   
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">
-                AOA
+                Node : {{this.nodeName}}
             </h5>
         </div>
         <div class="modal-body">
-            kkkkkkk
+            <div style="width: 100%">
+                    <img style="width: 100%" src="../../assets/map1.png" alt="">
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">LAT</th>
+                            <th scope="col">LONG</th>
+                            <th scope="col">Node Startdate</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of dataArr_recv">
+                            <th scope="col">#</th>
+                            <th scope="col">{{data.LAT}}</th>
+                            <th scope="col">{{data.LONG}}</th>
+                            <th scope="col">{{data.nodestartdate | date}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+            </div>
+                
           </div>
     </div>
   </div>

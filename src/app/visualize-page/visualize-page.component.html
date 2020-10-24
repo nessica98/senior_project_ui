@@ -1,6 +1,6 @@
 <div>
     <div class = "map-banner">
-        <img id = "image-1" src="../../assets/wooseok.jpg" style = "width:100%" alt="">
+        <img src="../../assets/now.png" alt="">
     </div>
     <h1>Node list</h1>
 <table class="table table-dark">
@@ -16,10 +16,10 @@
     <tbody>
       <tr *ngFor="let data of dataArr">
         <th scope="col">#</th>
-        <th scope="col">{{data.namenode}}</th>
+        <th scope="col">{{data.nodename}}</th>
         <th scope="col">{{data.nodeowner}}</th>
         <th scope="col">{{data.nodestartwork | date}}</th>
-        <th scope="col"><app-visualize-modal [nodename]= data.namenode></app-visualize-modal></th>
+        <th scope="col"><app-visualize-modal nodename= {{data.nodename}}></app-visualize-modal></th>
       </tr>
     </tbody>
   </table>

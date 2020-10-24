@@ -11,7 +11,7 @@ export class NodelistComponent implements OnInit {
   constructor() { }
 
   pollingData() {
-    Axios.get('http://localhost:5000/getdata').then((val)=>{
+    Axios.get('http://localhost:5000/nodedata').then((val)=>{
       console.log(val)
       this.dataArr = val.data
     
@@ -19,7 +19,7 @@ export class NodelistComponent implements OnInit {
   })
   }
   ngOnInit(): void {
-    Axios.get('http://localhost:5000/getdata').then((val)=>{
+    Axios.get('http://localhost:5000/nodedata').then((val)=>{
       console.log(val)
       this.dataArr = val.data
     

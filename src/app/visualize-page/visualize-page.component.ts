@@ -11,10 +11,10 @@ export class VisualizePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    Axios.get('http://localhost:5000/getdata').then((val)=>{
+    Axios.get('http://localhost:5000/nodedata').then((val)=>{
       console.log(val)
       this.dataArr = val.data
-    
+      
     
   })
   }
