@@ -4,11 +4,15 @@ import { VisualizePageComponent } from './visualize-page/visualize-page.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { LogbookPageComponent } from './logbook-page/logbook-page.component';
 import { LoginLoggingSystemComponent } from './login-logging-system/login-logging-system.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './guard/auth.guard';
+
 
 const routes: Routes = [{path:'',component:HomepageComponent},
   { path: 'visualize', component: VisualizePageComponent },
   { path: 'logbook-login', component: LoginLoggingSystemComponent },
-{ path: 'logbook', component: LogbookPageComponent },];
+{ path: 'logbook', component: LogbookPageComponent },
+{path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

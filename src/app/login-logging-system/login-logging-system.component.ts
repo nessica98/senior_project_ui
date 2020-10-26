@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-logging-system',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginLoggingSystemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     var userInput = document.getElementById("email1") as HTMLInputElement;
@@ -17,9 +18,12 @@ export class LoginLoggingSystemComponent implements OnInit {
     form_el.addEventListener('submit', (e)=>{
       e.preventDefault()
       console.log(userInput.value)
+
       if(userInput.value=='hwangjs'&&passwordInput.value=='js1998'){
+        localStorage.setItem('isLoggedIn',"true")
         console.log('true')
-        window.location.replace("/logbook")
+        this.router.navigate(['/dashboard'])
+        //window.location.replace("/logbook")
       }else{
         alert('Login fault')
         location.reload();
