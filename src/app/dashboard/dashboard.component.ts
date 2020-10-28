@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
 import { Router } from '@angular/router';  
+import Axios from 'axios';
+
 import { AuthService } from '../services/auth.service';  
   
 @Component({  
@@ -16,6 +18,27 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {  
     this.id = localStorage.getItem('token');  
     //console.log(this.id);  
+    var fisherykindInput = document.getElementById("fisherykind") as HTMLInputElement;
+    var amountInput = document.getElementById("amount") as HTMLInputElement;
+    var unitInput = document.getElementById("unitSelect") as HTMLInputElement;
+    var form_el = document.getElementById("login1");
+
+    form_el.addEventListener('submit', (e)=>{
+      e.preventDefault()
+      console.log('submit')
+      var fisherykind = fisherykindInput.value
+      var amount = amountInput.value
+      var unit = unitInput.value
+      if(fisherykind === ''  || amount === '' ){
+        alert('กรุณากรอกค่าให้ครบทั้ง 2 ช่อง')
+      }else{
+      var post_data = {fisheryKind:fisherykind,amount:amount,unit:unit}
+      console.log(post_data)
+      Axios.post('http://localhost:5000/logbook/add', post_data).then((val)=>{
+        console.log(val)
+      })
+      }
+    })
   }  
   
   logout() {  

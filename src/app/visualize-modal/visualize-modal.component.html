@@ -11,22 +11,22 @@
         </div>
         <div class="modal-body">
             <div style="width: 100%">
-                    <img style="width: 100%" src="../../assets/map1.png" alt="">
+                  <div #map style="width:100%;height:400px"></div>
                     <table class="table table-dark">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">LAT</th>
                             <th scope="col">LONG</th>
-                            <th scope="col">Node Startdate</th>
+                            <th scope="col">TIMESTAMP</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let data of dataArr_recv">
                             <th scope="col">#</th>
-                            <th scope="col">{{data.LAT}}</th>
-                            <th scope="col">{{data.LONG}}</th>
-                            <th scope="col">{{data.nodestartdate | date}}</th>
+                            <th scope="col">{{data.GPSLat}}</th>
+                            <th scope="col">{{data.GPSLong}}</th>
+                            <th scope="col">{{data.updateTime | date:'long'}}</th>
                           </tr>
                         </tbody>
                       </table>
