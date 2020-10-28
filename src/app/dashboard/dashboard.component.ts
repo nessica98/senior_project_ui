@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class DashboardComponent implements OnInit {  
   
   id: string;  
-  
+  dataArr_recv = [{Fishtype:'crab',unit:'kg',amount:22,update:new Date(2019,6,15)}]
   constructor(private router: Router, private authService: AuthService) { }  
   
   ngOnInit() {  
