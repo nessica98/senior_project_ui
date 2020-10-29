@@ -22,7 +22,11 @@ export class DashboardComponent implements OnInit {
     var amountInput = document.getElementById("amount") as HTMLInputElement;
     var unitInput = document.getElementById("unitSelect") as HTMLInputElement;
     var form_el = document.getElementById("login1");
-
+    Axios.get('http://localhost:5000/logbook').then((val)=>{
+      
+      this.dataArr_recv = val.data
+      console.log(this.dataArr_recv)
+    })
     form_el.addEventListener('submit', (e)=>{
       e.preventDefault()
       console.log('submit')
@@ -36,6 +40,13 @@ export class DashboardComponent implements OnInit {
       console.log(post_data)
       Axios.post('http://localhost:5000/logbook/add', post_data).then((val)=>{
         console.log(val)
+        if(val.data.affectedRows === 1){
+          alert('complete add')
+          window.location.reload()
+        }
+      }).catch((reason)=>{
+        alert('error')
+        console.log(reason)
       })
       }
     })

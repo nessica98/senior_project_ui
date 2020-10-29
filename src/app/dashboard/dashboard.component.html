@@ -32,7 +32,6 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
                     <th scope="col">Handle</th>
@@ -40,10 +39,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of dataArr_recv">
-                        <th scope="col">#</th>
-                        <th scope="col">{{data.Fishtype}}</th>
-                        <th scope="col"><span>{{data.amount}}</span><span> {{data.Unit}}</span></th>
-                        <th scope="col">{{data.update | date}}</th>
+                        <th scope="col">{{data.fisherytype}}</th>
+                        <th scope="col"><span>{{data.amount}}</span><span> {{data.unit}}</span></th>
+                        <th scope="col">{{data.updateTime | date:'short'}}</th>
                       </tr>
                 </tbody>
               </table>
