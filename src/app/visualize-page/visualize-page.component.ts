@@ -1,6 +1,6 @@
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import Axios from 'axios';
+import { NodedataService } from '../services/nodedata.service';
 
 @Component({
   selector: 'app-visualize-page',
@@ -11,15 +11,15 @@ export class VisualizePageComponent implements OnInit {
   dataArr:any;
   @ViewChild('map',{static: true}) mapElement: any;
   map: google.maps.Map;
-  constructor() { }
+  constructor(private nodedata:NodedataService) { }
 
   ngOnInit(): void {
     var locations:any[]
-    Axios.get('http://localhost:5000/allnode').then((val)=>{
-      console.log(val)
-      this.dataArr = val.data  
-  })
-  Axios.get('http://localhost:5000/allnode/latest').then((val)=>{
+    var getData = this.nodedata.GetNodeData();
+    var getDataLatest = this.nodedata.GetNodeDataLatest();
+    getData.then((data)=>{console.log(data.data); this.dataArr=data.data})
+    console.log(this.dataArr)
+    getDataLatest.then((val)=>{
       console.log(val)
       locations = val.data 
       console.log(locations)
