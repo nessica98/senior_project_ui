@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+//import * as jwt from 'jsonwebtoken';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +15,12 @@ export class AuthGuard implements CanActivate {
   constructor(private router:Router,private authenticationService:AuthService){}
   public isLoggedIn(): boolean {
     let status = false;
-    if(localStorage.getItem('isLoggedIn')=="true") status = true
+    //let token = localStorage.getItem('token')
+    
+    //jwt.verify(token, 'wekimeki', (err,decoded)=>{
+     // if(err) return false
+    //})
+    if(localStorage.getItem('isLoggedIn')=="true" && localStorage.getItem('token')) status = true
     else status = false
     return status
   }

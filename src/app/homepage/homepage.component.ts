@@ -1,5 +1,6 @@
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-homepage',
@@ -16,6 +17,11 @@ export class HomepageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const helper = new JwtHelperService()
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoianVuaG8iLCJpZCI6MjIyLCJpYXQiOjE2MDUwMzU1NjIsImV4cCI6MTYwNTAzNzM2Mn0.ilh6bAjuzGkiOG9ntRaRU50A33gCObTgg0XOi_yVlJI'
+    const decodedToken = helper.decodeToken(token);
+    console.log('token, ',token)
+    console.log('dec token, ',decodedToken)
     this.name = 'weme'
     const myLatLng = { lat: 13.8463, lng: 100.5669 };
     const mapProperties = {

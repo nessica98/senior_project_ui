@@ -9,6 +9,7 @@ import { Login } from '../interfaces/login';
 })
 export class AuthService {
   constructor() {  }
+  
   logout(): void{
     localStorage.setItem('isLoggedIn','false');
     localStorage.removeItem('token');
