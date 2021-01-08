@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import Axios from 'axios';
 
 @Component({
   selector: 'app-login-logging-system',
@@ -18,7 +19,10 @@ export class LoginLoggingSystemComponent implements OnInit {
     form_el.addEventListener('submit', (e)=>{
       e.preventDefault()
       console.log(userInput.value)
-
+      //Call /authen/login API
+      Axios.post('http://localhost:5000/authen/login',{user:userInput.value,pass:passwordInput.value}).then((data_resp)=>{
+        console.log(data_resp)
+      }).catch((res)=>{console.log(res)})
       if(userInput.value=='hwangjs'&&passwordInput.value=='js1998'){
         localStorage.setItem('isLoggedIn',"true")
         console.log('true')
@@ -26,7 +30,7 @@ export class LoginLoggingSystemComponent implements OnInit {
         //window.location.replace("/logbook")
       }else{
         alert('Login fault')
-        location.reload();
+        //location.reload();
       }
     })
   }

@@ -15,6 +15,8 @@ import { LoginLoggingSystemComponent } from './login-logging-system/login-loggin
 import { VisualizeModalComponent } from './visualize-modal/visualize-modal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
+import { VisualizePageNewComponent } from './visualize-page-new/visualize-page-new.component';
+import { VisualizeEachNodeComponent } from './nodes/visualize-each-node/visualize-each-node.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AuthGuard } from './guard/auth.guard';
     LogbookPageComponent,
     LoginLoggingSystemComponent,
     VisualizeModalComponent,
-    DashboardComponent
+    DashboardComponent,
+    VisualizePageNewComponent,
+    VisualizeEachNodeComponent
   ],
   imports: [
     BrowserModule,

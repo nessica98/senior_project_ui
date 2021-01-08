@@ -10,9 +10,9 @@ export class NodedataService {
   BaseUrl = this.api.getBaseURL()
 
   async GetNodeData() {
-    console.log(this.BaseUrl+'/allnode')
-    const result = await Axios.get(this.BaseUrl+'/allnode')
-    return result
+    console.log(this.BaseUrl+'/gps/allnode')
+    const result = await Axios.get(this.BaseUrl+'/gps/allnode')
+    return result.data
   }
 
   async GetNodeDataLatest() {

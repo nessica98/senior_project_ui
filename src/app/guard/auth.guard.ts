@@ -15,12 +15,15 @@ export class AuthGuard implements CanActivate {
   constructor(private router:Router,private authenticationService:AuthService){}
   public isLoggedIn(): boolean {
     let status = false;
+    let token = localStorage.getItem('token');
+    console.log(token)
     //let token = localStorage.getItem('token')
     
     //jwt.verify(token, 'wekimeki', (err,decoded)=>{
      // if(err) return false
     //})
-    if(localStorage.getItem('isLoggedIn')=="true" && localStorage.getItem('token')) status = true
+    if(localStorage.getItem('isLoggedIn')=="true") status = true;
+    //if(localStorage.getItem('isLoggedIn')=="true" && token) status = true
     else status = false
     return status
   }
@@ -31,6 +34,7 @@ export class AuthGuard implements CanActivate {
       console.log(localStorage.getItem('isLoggedIn'))
       if(this.isLoggedIn()){
         return true;
+
       }
       this.router.navigate(['/logbook-login'])
       return false;
