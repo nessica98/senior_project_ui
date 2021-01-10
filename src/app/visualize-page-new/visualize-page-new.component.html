@@ -1,7 +1,10 @@
 <div>
-    <div *ngIf="loading" class="box">
-        <div class="spinner-border" role="status">
+    <div *ngIf="loading || notfound" class="box">
+        <div *ngIf = "loading" class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
+        </div>
+        <div *ngIf = "notfound" class="not-found">
+            <h2>Not found</h2>
         </div>
     </div>
     <div *ngIf="!loading" class="row">

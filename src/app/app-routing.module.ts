@@ -7,12 +7,14 @@ import { LoginLoggingSystemComponent } from './login-logging-system/login-loggin
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { VisualizePageNewComponent } from './visualize-page-new/visualize-page-new.component';
+import { VisualizeEachFullComponent } from './visualize-each-full/visualize-each-full.component';
 
 
 const routes: Routes = [{path:'',component:HomepageComponent},
   { path: 'visualize', component: VisualizePageNewComponent },
   { path: 'logbook-login', component: LoginLoggingSystemComponent },
 { path: 'logbook', component: LogbookPageComponent },
+{ path: 'visual', component: VisualizeEachFullComponent},
 {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]}];
 
 @NgModule({

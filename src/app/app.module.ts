@@ -17,6 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { VisualizePageNewComponent } from './visualize-page-new/visualize-page-new.component';
 import { VisualizeEachNodeComponent } from './nodes/visualize-each-node/visualize-each-node.component';
+import { VisualizeEachFullComponent } from './visualize-each-full/visualize-each-full.component';
+
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { VisualizeEachNodeComponent } from './nodes/visualize-each-node/visualiz
     VisualizeModalComponent,
     DashboardComponent,
     VisualizePageNewComponent,
-    VisualizeEachNodeComponent
+    VisualizeEachNodeComponent,
+    VisualizeEachFullComponent
   ],
   imports: [
     BrowserModule,

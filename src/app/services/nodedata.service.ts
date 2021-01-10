@@ -15,6 +15,15 @@ export class NodedataService {
     return result.data
   }
 
+  async GetOneNodeData(nodename){
+    const result_nodedata = await Axios.get(this.BaseUrl+'/gps/allnode')
+    const result_all = await Axios.get(this.BaseUrl+'/gps/alldata')
+    let result_nodedata_filt = result_nodedata.data.filter((val,idx)=>{
+      return val.nodename === nodename
+    })
+    return {result_nodedata_filt,result_all}
+  }
+
   async GetNodeDataLatest() {
     const result = await Axios.get(this.BaseUrl+'/allnode/latest')
     return result

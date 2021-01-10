@@ -9,12 +9,14 @@ import { NodedataService } from '../services/nodedata.service';
 })
 export class VisualizePageNewComponent implements OnInit {
   loading: boolean = true;
+  notfound: boolean = false;
   nodeData_arr: nodeData[];
   constructor(private nd: NodedataService) { }
 
   ngOnInit(): void {
     this.nd.GetNodeData().then((result) => {
       this.nodeData_arr = result
+      if(this.nodeData_arr.length < 1) this.notfound = true;
       this.loading = false;
     })
     
