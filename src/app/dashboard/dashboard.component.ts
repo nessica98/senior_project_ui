@@ -4,6 +4,7 @@ import Axios from 'axios';
 import {v4 as uuidv4} from 'uuid';
 
 import { AuthService } from '../services/auth.service';  
+import { LogbookService } from '../services/logbook.service';
   
 @Component({  
   selector: 'app-dashboard',  
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   val_IDbox:uuidv4 = uuidv4()
   LogbookListShow = []
   isLenLogbookZero:boolean = this.LogbookListShow.length > 0
-  constructor(private router: Router, private authService: AuthService) { }  
+  constructor(private router: Router, private authService: AuthService,private logService:LogbookService) { }  
   del(index) {
       console.log(index)
       this.LogbookListShow = this.LogbookListShow.filter((val,idx)=>{
@@ -36,11 +37,10 @@ export class DashboardComponent implements OnInit {
     const payload = {LogbookId:logbookId,nodename:'Junho',LogbookList:logbookList}
 
     // Axios
-    Axios.post('http://localhost:5020/logbook/add', payload).then((resp)=>{
-      console.log(resp)
-      alert('Add complete!!')
-    }).catch((reason)=>{
-      console.error(reason)
+    this.logService.gatewayDataAdd(payload).then((val)=>{
+      console.log(val)
+       //this.router.navigate(['dashboard'])
+       window.location.reload()
     })
     //
   }
@@ -52,10 +52,8 @@ export class DashboardComponent implements OnInit {
     var amountInput = document.getElementById("amount") as HTMLInputElement;
     var unitInput = document.getElementById("unitSelect") as HTMLInputElement;
     var form_el = document.getElementById("login1");
-    Axios.get('http://localhost:5020/logbook/Junho').then((val)=>{
-      
-      this.dataArr_recv = val.data
-      console.log(this.dataArr_recv)
+    this.logService.gatewayDataFetch('Junho').then((data)=>{
+      this.dataArr_recv = data
     })
 
     
