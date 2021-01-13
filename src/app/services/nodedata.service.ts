@@ -26,7 +26,7 @@ export class NodedataService {
   }
 
   async GetFilterGPSval(nodename){
-    const result_nodedata = await Axios.get(this.BaseUrl+'/gps/alldata/'+nodename+'?filter=gps')
+    const result_nodedata = await Axios.get(this.BaseUrl+'/gps/alldata/'+nodename)
     
    
     return result_nodedata.data
@@ -36,5 +36,6 @@ export class NodedataService {
     const result = await Axios.get(this.BaseUrl+'/allnode/latest')
     return result
   }
-
+  
+  
 }

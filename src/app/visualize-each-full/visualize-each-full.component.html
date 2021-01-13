@@ -4,3 +4,27 @@
 <div #map style="width:100%;height:400px"></div>
 <!-- <div style="width:100%;height:400px" class="map" id="map"></div> -->
 <!-- <div #map ></div> -->
+<div>
+    <h2>Nodename : {{nodename}}</h2>
+</div>
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let val of allgpsdata; index as index">
+            <th scope="row">{{index}}</th>
+            <td>{{val.updateTimestamp}}</td>
+            <td>{{val.nodeGPScoordinate.coordinates[0]}}</td>
+            <td>{{val.nodeGPScoordinate.coordinates[0]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
