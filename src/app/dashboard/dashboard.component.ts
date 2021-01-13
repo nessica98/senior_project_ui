@@ -54,8 +54,9 @@ export class DashboardComponent implements OnInit {
     var form_el = document.getElementById("login1");
     this.logService.gatewayDataFetch('Junho').then((data)=>{
       this.dataArr_recv = data
+      console.log(this.dataArr_recv)
     })
-
+    
     
 
     form_el.addEventListener('submit', (e)=>{

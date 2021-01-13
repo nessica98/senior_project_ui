@@ -18,6 +18,7 @@ import TileLayer from 'ol/layer/Tile';
   styleUrls: ['./visualize-each-full.component.css']
 })
 export class VisualizeEachFullComponent implements OnInit {
+  nodename:string;
   nodedata:any[];
   allgpsdata:any[];
   nodenotfound: boolean = true;
@@ -39,6 +40,7 @@ export class VisualizeEachFullComponent implements OnInit {
       if (!node) {
         this.router.navigate(['/'])
       }
+      this.nodename = node
       this.nd.GetFilterGPSval(node).then((val)=>{
         this.allgpsdata = val
         console.log(this.allgpsdata)
@@ -50,11 +52,17 @@ export class VisualizeEachFullComponent implements OnInit {
             console.log(this.mapElement)
             
             this.map = new google.maps.Map(this.mapElement.nativeElement,mapProperties);
-            
+            const image =    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+            new google.maps.Marker({
+              position: new google.maps.LatLng(13.8458089 ,100.5680329),
+              map:this.map,
+               icon:image,
+              title: "Hello World2!",
+            })
             this.allgpsdata.forEach((val,idx)=>{
               //console.log(val.nodeGPScoordinate.coordinates)
               let marker = new google.maps.Marker({
-                position: new google.maps.LatLng(val.lat, val.lng),
+                position: new google.maps.LatLng(val.nodeGPScoordinate.coordinates[0] ,val.nodeGPScoordinate.coordinates[1]),
                 map:this.map,
                 title: "Hello World2!",
               })

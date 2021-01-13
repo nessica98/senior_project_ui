@@ -18,6 +18,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { VisualizePageNewComponent } from './visualize-page-new/visualize-page-new.component';
 import { VisualizeEachNodeComponent } from './nodes/visualize-each-node/visualize-each-node.component';
 import { VisualizeEachFullComponent } from './visualize-each-full/visualize-each-full.component';
+import { LogbookdetailComponent } from './modals/logbookdetail/logbookdetail.component';
 
 
 
@@ -34,7 +35,8 @@ import { VisualizeEachFullComponent } from './visualize-each-full/visualize-each
     DashboardComponent,
     VisualizePageNewComponent,
     VisualizeEachNodeComponent,
-    VisualizeEachFullComponent
+    VisualizeEachFullComponent,
+    LogbookdetailComponent
   ],
   imports: [
     BrowserModule,

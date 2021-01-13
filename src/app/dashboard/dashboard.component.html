@@ -18,7 +18,7 @@
             <th scope="col">{{i+1}}</th>
             <th scope="col">{{data.createdAt}}</th>
             <th scope="col">
-              <button type="button" class="btn btn-info btn-sm">Detail</button>
+              <app-logbookdetail [id]="i" [data]="data"></app-logbookdetail>
               <button type="button" class="btn btn-danger btn-sm">Delete</button>
             </th>
           </tr>
