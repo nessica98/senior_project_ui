@@ -46,7 +46,7 @@ export class VisualizeEachFullComponent implements OnInit {
         console.log(this.allgpsdata)
         const mapProperties = {
               center: new google.maps.LatLng(13.8463, 100.5669),
-              zoom: 12,
+              zoom: 15,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             console.log(this.mapElement)
@@ -54,7 +54,7 @@ export class VisualizeEachFullComponent implements OnInit {
             this.map = new google.maps.Map(this.mapElement.nativeElement,mapProperties);
             const image =    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
             new google.maps.Marker({
-              position: new google.maps.LatLng(13.8458089 ,100.5680329),
+              position: new google.maps.LatLng(13.8457347 ,100.5679816),
               map:this.map,
                icon:image,
               title: "Hello World2!",

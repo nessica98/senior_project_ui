@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';  
 import Axios from 'axios';
 import {v4 as uuidv4} from 'uuid';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 import { AuthService } from '../services/auth.service';  
 import { LogbookService } from '../services/logbook.service';
@@ -14,7 +15,7 @@ import { LogbookService } from '../services/logbook.service';
 export class DashboardComponent implements OnInit {  
   
   id: string;  
-  dataArr_recv = [{Fisherype:'crab',unit:'kg',amount:22,update:new Date(2019,6,15)}]
+  dataArr_recv;
   val_IDbox:uuidv4 = uuidv4()
   LogbookListShow = []
   isLenLogbookZero:boolean = this.LogbookListShow.length > 0
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnInit {
     console.log('To add')
     const logbookId = this.val_IDbox;
     const logbookList = this.LogbookListShow;
-    const payload = {LogbookId:logbookId,nodename:'Junho',LogbookList:logbookList}
+    const payload = {LogbookId:logbookId,nodename:this.id,LogbookList:logbookList}
 
     // Axios
     this.logService.gatewayDataAdd(payload).then((val)=>{
@@ -45,14 +46,17 @@ export class DashboardComponent implements OnInit {
     //
   }
   ngOnInit() {  
-    this.id = localStorage.getItem('token');  
+    //this.id = localStorage.getItem('token');  
     //console.log(this.id);  
-    
+    const token = localStorage.getItem('token')
+    const helper = new JwtHelperService();
+    const data = helper.decodeToken(token)
+    this.id = data.ownername
     var fisherykindInput = document.getElementById("fisherykind") as HTMLInputElement;
     var amountInput = document.getElementById("amount") as HTMLInputElement;
     var unitInput = document.getElementById("unitSelect") as HTMLInputElement;
     var form_el = document.getElementById("login1");
-    this.logService.gatewayDataFetch('Junho').then((data)=>{
+    this.logService.gatewayDataFetch(this.id).then((data)=>{
       this.dataArr_recv = data
       console.log(this.dataArr_recv)
     })
