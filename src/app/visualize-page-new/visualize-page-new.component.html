@@ -1,13 +1,16 @@
 <div>
-    <div *ngIf="loading || notfound" class="box">
-        <div *ngIf = "loading" class="spinner-border" role="status">
+    <div *ngIf="loading || notfound || error" class="box">
+        <div *ngIf = "loading && !error" class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>
         <div *ngIf = "notfound" class="not-found">
             <h2>Not found</h2>
         </div>
+        <div *ngIf = "error" class="not-found">
+            <h2>Server occurs error</h2>
+        </div>
     </div>
-    <div *ngIf="!loading" class="row">
+    <div *ngIf="!loading && !notfound" class="row">
 
         <div *ngFor="let nodedata of nodeData_arr" class="col-sm-6">
             <app-visualize-each-node [nodeData]="nodedata"></app-visualize-each-node>

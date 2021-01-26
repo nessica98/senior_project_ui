@@ -10,6 +10,7 @@ import { NodedataService } from '../services/nodedata.service';
 export class VisualizePageNewComponent implements OnInit {
   loading: boolean = true;
   notfound: boolean = false;
+  error: boolean = false;
   nodeData_arr: nodeData[];
   constructor(private nd: NodedataService) { }
 
@@ -18,6 +19,9 @@ export class VisualizePageNewComponent implements OnInit {
       this.nodeData_arr = result
       if(this.nodeData_arr.length < 1) this.notfound = true;
       this.loading = false;
+    }).catch((reason)=>{
+      alert(reason);
+      this.error = true;
     })
     
   }

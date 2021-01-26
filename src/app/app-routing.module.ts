@@ -10,12 +10,15 @@ import { VisualizePageNewComponent } from './visualize-page-new/visualize-page-n
 import { VisualizeEachFullComponent } from './visualize-each-full/visualize-each-full.component';
 
 
-const routes: Routes = [{path:'',component:HomepageComponent},
+const routes: Routes = [
+  { path: '', component: HomepageComponent },
   { path: 'visualize', component: VisualizePageNewComponent },
   { path: 'logbook-login', component: LoginLoggingSystemComponent },
-{ path: 'logbook', component: LogbookPageComponent },
-{ path: 'visual', component: VisualizeEachFullComponent},
-{path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]}];
+  { path: 'logbook', component: LogbookPageComponent },
+  { path: 'visual', component: VisualizeEachFullComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
