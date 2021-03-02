@@ -21,9 +21,9 @@
         <tbody>
           <tr *ngFor="let val of allgpsdata; index as index">
             <th scope="row">{{index}}</th>
-            <td>{{val.updateTimestamp}}</td>
+            <td>{{val.updateTimestamp |  date:'long'}}</td>
             <td>{{val.nodeGPScoordinate.coordinates[0]}}</td>
-            <td>{{val.nodeGPScoordinate.coordinates[0]}}</td>
+            <td>{{val.nodeGPScoordinate.coordinates[1]}}</td>
           </tr>
           
         </tbody>

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'logbook-login', component: LoginLoggingSystemComponent },
   { path: 'logbook', component: LogbookPageComponent },
   { path: 'visual', component: VisualizeEachFullComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent,  canActivate:[AuthGuard]},
   
 ];
 

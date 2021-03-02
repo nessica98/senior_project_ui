@@ -16,7 +16,7 @@
         <tbody>
           <tr *ngFor="let data of dataArr_recv; let i = index">
             <th scope="col">{{i+1}}</th>
-            <th scope="col">{{data.createdAt}}</th>
+            <th scope="col">{{data.createdAt | date:"short"}}</th>
             <th scope="col">
               <app-logbookdetail [id]="i" [data]="data"></app-logbookdetail>
               <button type="button" class="btn btn-danger btn-sm">Delete</button>

@@ -9,7 +9,7 @@ export class APIWebConfigService {
   private BaseUrl:string;
   constructor() { 
     if(environment.production){
-      this.BaseUrl = 'http://192.168.43.211:5020/api'
+      this.BaseUrl = 'http://10.2.29.138:5020/api'
     }else{
       this.BaseUrl = 'http://localhost:5020/api'
     }
